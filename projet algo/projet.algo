@@ -1,0 +1,29 @@
+program IsPalindrome;
+
+function IsPalind(s: string): boolean;
+var
+  i, len: integer;
+begin
+  len := length(s);
+  if len <= 1 then
+    IsPalind := true
+  else begin
+    IsPalind := false;
+    i := 1;
+    while (i <= len div 2) and (s[i] = s[len - i + 1]) do
+      i := i + 1;
+    if i > len div 2 then
+      IsPalind := true;
+  end;
+end;
+
+var
+  s: string;
+begin
+  writeln('Enter a word:');
+  readln(s);
+  if IsPalind(s) then
+    writeln(s, ' is a palindrome')
+  else
+    writeln(s, ' is not a palindrome');
+end.
